@@ -51,7 +51,7 @@ function App() {
               <Route path="/login" exact element={<Login />}></Route>
               <Route path="/register" element={<Register />}></Route>
               <Route path="/publish" element={<AddPhoto />}></Route>
-              <Route path="/profile" element={<Profile />}></Route>
+              <Route path="/profile/:username" element={<Profile />}></Route>
               <Route path="/logout" element={<Logout />}></Route>
             </Routes>
           </div>

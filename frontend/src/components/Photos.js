@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Photo from './Photo';
+import {Col, Container, Row} from "react-bootstrap";
 
 function Photos(){
     const [photos, setPhotos] = useState([]);
@@ -13,12 +14,15 @@ function Photos(){
     }, []);
 
     return(
-        <div>
-            <h3>Photos:</h3>
-            <ul>
-                {photos.map(photo=>(<Photo photo={photo} key={photo._id}></Photo>))}
-            </ul>
-        </div>
+        <Container>
+            <Row>
+                {photos.map(photo => (
+                    <Col xs={16} sm={6} md={4} lg={2} key={photo._id}>
+                        <Photo photo={photo} />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 }
 

@@ -56,11 +56,13 @@ module.exports = {
      */
     create: function (req, res) {
         var photo = new PhotoModel({
-            name : req.body.name,
-            path : "/images/"+req.file.filename,
-            postedBy : req.session.userId,
-            views : 0,
-            likes : 0
+            name: req.body.name,
+            description: req.body.description,
+            path: "/images/" + req.file.filename,
+            postedBy: req.session.userId,
+            postedOn: new Date(),
+            views: 0,
+            likes: 0
         });
 
         photo.save(function (err, photo) {
@@ -98,7 +100,9 @@ module.exports = {
 
             photo.name = req.body.name ? req.body.name : photo.name;
             photo.path = req.body.path ? req.body.path : photo.path;
+            photo.description = req.body.description ? req.body.description : photo.description;
             photo.postedBy = req.body.postedBy ? req.body.postedBy : photo.postedBy;
+            photo.postedOn = req.body.postedOn ? req.body.postedOn : photo.postedOn;
             photo.views = req.body.views ? req.body.views : photo.views;
             photo.likes = req.body.likes ? req.body.likes : photo.likes;
 
@@ -133,7 +137,7 @@ module.exports = {
         });
     },
 
-    publish: function(req, res){
+    publish: function (req, res) {
         return res.render('photo/publish');
     }
 };

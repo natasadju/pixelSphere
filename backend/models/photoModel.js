@@ -3,11 +3,13 @@ var Schema   = mongoose.Schema;
 
 var photoSchema = new Schema({
 	'name' : String,
+	'description' : String,
 	'path' : String,
 	'postedBy' : {
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'user'
 	},
+	'postedOn' : Date,
 	'views' : Number,
 	'likes' : Number
 });
