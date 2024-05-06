@@ -24,7 +24,7 @@ function Header(props) {
                                                 <Link className="nav-link" to="/publish">Publish</Link>
                                             </li>
                                             <li className="nav-item ml-auto">
-                                                <Link className="nav-link" to={`/profile/${username}`}>Profile</Link>
+                                                <Link className="nav-link" to={`/profile`}>Profile</Link>
                                             </li>
                                             <li className="nav-item">
                                                 <Link className="nav-link" to="/logout">Logout</Link>

@@ -2,30 +2,18 @@ import {useContext, useEffect, useState} from 'react';
 import {UserContext} from '../userContext';
 import {Navigate, useParams} from 'react-router-dom';
 
-//TODO: Make the profile page show different information based on if the viewer is the owner of the profile or not
-
 function Profile() {
     const userContext = useContext(UserContext);
-    const {username} = useParams();
     const [profile, setProfile] = useState({});
 
     useEffect(function () {
-        const getProfile = async () => {
-            try {
-                const res = await fetch(`http://localhost:3001/users/${username}`, {credentials: "include"});
-                if (!res.ok) {
-                    throw new Error('Failed to fetch profile data');
-                }
-                const data = await res.json();
-                console.log(data); // Log the fetched data
-                setProfile(data);
-            } catch (error) {
-                console.error(error); // Log any errors
-            }
+        const getProfile = async function () {
+            const res = await fetch("http://localhost:3001/users/profile", {credentials: "include"});
+            const data = await res.json();
+            setProfile(data);
         }
         getProfile();
-    }, [username]);
-
+    }, []);
 
     return (
         <>

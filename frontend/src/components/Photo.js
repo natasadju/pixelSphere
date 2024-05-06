@@ -31,10 +31,6 @@ function Photo(props) {
             <img src={"http://localhost:3001/" + props.photo.path} alt={props.photo.name} style={imageStyle}/>
             <div style={titleStyle}>
                 <h5>{props.photo.name}</h5>
-                {/* Wrap the username in a Link component */}
-                <Link to={`/profile/${props.photo.postedBy.username}`} style={usernameStyle}>
-                    {props.photo.postedBy.username}
-                </Link>
             </div>
         </div>
     );
